@@ -76,9 +76,9 @@ public class SheetViewController: UIViewController {
     
     // MARK: - Private properties
     /// The current preferred container size
-    private var containerSize: SheetSize = .fixed(300)
+     public var containerSize: SheetSize = .fixed(300)
     /// The current actual container size
-    private var actualContainerSize: SheetSize = .fixed(300)
+     public var actualContainerSize: SheetSize = .fixed(300)
     /// The array of sizes we are trying to pin to when resizing the sheet. To set, use `setSizes` function
     private var orderedSheetSizes: [SheetSize] = [.fixed(300), .fullScreen]
     
@@ -321,10 +321,8 @@ public class SheetViewController: UIViewController {
     
     override public func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         self.willDismiss?(self)
-        super.dismiss(animated: flag) {
-            self.didDismiss?(self)
-            completion?()
-        }
+        completion?()
+
     }
     
     @objc func panned(_ gesture: UIPanGestureRecognizer) {
